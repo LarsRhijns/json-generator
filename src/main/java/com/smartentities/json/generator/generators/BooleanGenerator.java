@@ -2,6 +2,8 @@ package com.smartentities.json.generator.generators;
 
 import org.everit.json.schema.Schema;
 
+import java.util.Random;
+
 public class BooleanGenerator extends JsonValueGenerator<Boolean> {
 
 	public BooleanGenerator(Schema schema) {
@@ -9,8 +11,8 @@ public class BooleanGenerator extends JsonValueGenerator<Boolean> {
 	}
 
 	@Override
-	//TODO Check properties and return random option
 	public Boolean generate() {
-		return false;
+		Random random = new Random();
+		return random.nextBoolean();
 	}
 }

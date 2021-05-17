@@ -24,7 +24,7 @@ public class JsonGeneratorTest {
 		try {
 			//String schemaPath = "src/test/resources/Schema4.json";
 			
-			String schemaPath = "src/test/resources/AuthorSchema.json";
+			String schemaPath = "src/test/resources/Schema4.json";
 			GeneratorConfig generatorConfig= GeneratorConfig.fromSchemaPath(schemaPath);
 			
 			JsonGenerator jsonGenerator = new JsonGenerator(generatorConfig);
@@ -34,11 +34,20 @@ public class JsonGeneratorTest {
 			
 			
 			//Validate generated message
-			JSONArray jsonSubject = new JSONArray(new JSONTokener(new ByteArrayInputStream(json.getBytes(Charset.defaultCharset()))));
-
-			Schema schema = SchemaLoader.load(generatorConfig.getJsonSchema());
-			schema.validate(jsonSubject);
-			
+			JSONTokener tokener = new JSONTokener(new ByteArrayInputStream(json.getBytes(Charset.defaultCharset())));
+			char token = tokener.next();
+			tokener.back();
+			if (token == '{') {
+				JSONObject jsonSubject = new JSONObject(tokener);
+				Schema schema = SchemaLoader.load(generatorConfig.getJsonSchema());
+				schema.validate(jsonSubject);
+			} else if (token == '[') {
+				JSONArray jsonSubject = new JSONArray(tokener);
+				Schema schema = SchemaLoader.load(generatorConfig.getJsonSchema());
+				schema.validate(jsonSubject);
+			} else {
+				throw new IllegalArgumentException("JSON Schema contains illegal syntax");
+			}
 			
 		} catch (JSONException | FileNotFoundException e) {
 			e.printStackTrace();
