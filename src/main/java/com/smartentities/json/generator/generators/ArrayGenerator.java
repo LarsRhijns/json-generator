@@ -13,6 +13,7 @@ public class ArrayGenerator extends JsonValueGenerator<JSONArray> {
 	}
 
 	@Override
+	// TODO Parse properties of the array
 	public JSONArray generate() {
 
 		if (schema instanceof ArraySchema) {

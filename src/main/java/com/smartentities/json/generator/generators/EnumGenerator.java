@@ -13,6 +13,7 @@ public class EnumGenerator extends JsonValueGenerator<Object> {
     }
 
     @Override
+    // TODO Parse properties and return any option
     public Object generate() {
         List<Object> possibleValuesAsList = ((EnumSchema) schema).getPossibleValuesAsList();
         return possibleValuesAsList.get(0);

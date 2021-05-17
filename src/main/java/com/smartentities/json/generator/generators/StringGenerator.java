@@ -12,6 +12,7 @@ public class StringGenerator extends JsonValueGenerator<String> {
 	}
 
 	@Override
+	// TODO Parse properties and return valid option
 	public String generate() {
 
 		String formatName = ((StringSchema)schema).getFormatValidator().formatName();

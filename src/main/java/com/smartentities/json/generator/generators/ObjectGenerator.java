@@ -19,6 +19,7 @@ public class ObjectGenerator extends JsonValueGenerator<JSONObject> {
 	}
 
 	@Override
+	// TODO Parse properties and return random valid option
 	public JSONObject generate() {
 
 		if (schema instanceof ObjectSchema) {

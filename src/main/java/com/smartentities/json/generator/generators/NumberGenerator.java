@@ -9,6 +9,7 @@ public class NumberGenerator extends JsonValueGenerator<Number> {
 	}
 
 	@Override
+	// TODO Parse properties and return random option
 	public Number generate() {
 
 		return 1;

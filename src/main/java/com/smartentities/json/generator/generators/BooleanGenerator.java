@@ -9,6 +9,7 @@ public class BooleanGenerator extends JsonValueGenerator<Boolean> {
 	}
 
 	@Override
+	//TODO Check properties and return random option
 	public Boolean generate() {
 		return false;
 	}
