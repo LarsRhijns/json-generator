@@ -8,7 +8,10 @@
     },
     "properties": {
         "Number": {
-            "type": "integer"
+            "type": "integer",
+            "multipleOf": 10,
+            "maximum": 100,
+            "minimum": -100
         },
         "Name": {
             "type": "string",
@@ -20,21 +23,6 @@
             "type": "boolean",
             "title": "Status",
     		"description": "Description of Status"
-        },
-        "Address":{
-			"type" : "object",
-			"properties" : {
-				"line1" : {
-					"type": "string",
-            		"title": "Address Line 1",
-    				"description": "Description of Line 1"
-				},
-				"line2" : {
-					"type": "string",
-            		"title": "Address Line 2",
-    				"description": "Description of Line 2"
-				}
-			}        
         }
     }
 }
