@@ -7,10 +7,10 @@
 
 	<groupId>com.smartentities.json</groupId>
 	<artifactId>json-generator</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>develop</version>
 	<packaging>jar</packaging>
 	<name>JSON Generator</name>
-	<url>https://github.com/jignesh-dhua/json-generator</url>
+	<url>https://github.com/LarsRhijns/json-generator</url>
 	<description>The library to generate sample JSON data from JSON schema</description>
 
 	<licenses>
@@ -25,6 +25,10 @@
 		<developer>
 			<name>Jignesh Dhua</name>
 			<email>jignesh.dhua@gmail.com</email>
+		</developer>
+		<developer>
+			<name>Lars Rhijnsburger</name>
+			<email>l.e.rhijnsburger@student.tudelft.nl</email>
 		</developer>
 	</developers>
 
@@ -75,13 +79,21 @@
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<version>2.5.2</version>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
 				<version>2.2.1</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
 						<goals>
-							<goal>jar-no-fork</goal>
+							<goal>jar</goal>
 						</goals>
 					</execution>
 				</executions>
@@ -120,6 +132,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.4</version>
 				<executions>
 					<execution>
 						<id>empty-javadoc-jar</id>
