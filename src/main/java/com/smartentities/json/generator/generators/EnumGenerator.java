@@ -13,13 +13,17 @@ public class EnumGenerator extends JsonValueGenerator<Object> {
 
     }
 
+    /**
+     * Generates a random valid item from the specified items.
+     * @return Object: A valid item from the enumerated options.
+     */
     @Override
     public Object generate() {
         Random random = new Random();
         List<Object> possibleValuesAsList = ((EnumSchema) schema).getPossibleValuesAsList();
         int len = possibleValuesAsList.size();
 
-        // Choose random option from the options
+        // Choose random item from the options
         int index = random.nextInt(len);
 
         return possibleValuesAsList.get(index);

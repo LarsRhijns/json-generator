@@ -10,6 +10,10 @@ public class BooleanGenerator extends JsonValueGenerator<Boolean> {
 		super(schema);
 	}
 
+	/**
+	 * Generates a random boolean with 50/50 chance.
+	 * @return Boolean
+	 */
 	@Override
 	public Boolean generate() {
 		Random random = new Random();

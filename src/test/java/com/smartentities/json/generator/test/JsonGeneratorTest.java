@@ -24,7 +24,7 @@ public class JsonGeneratorTest {
 		try {
 			//String schemaPath = "src/test/resources/Schema4.json";
 			
-			String schemaPath = "src/test/resources/Schema5.json";
+			String schemaPath = "src/test/resources/Schema4.json";
 			GeneratorConfig generatorConfig= GeneratorConfig.fromSchemaPath(schemaPath);
 			
 			JsonGenerator jsonGenerator = new JsonGenerator(generatorConfig);

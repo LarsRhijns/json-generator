@@ -18,7 +18,7 @@ public class ArrayGenerator extends JsonValueGenerator<JSONArray> {
 	/**
 	 * Generates the items specified in the array. Assumes that the amount of items is within the range specified
 	 * in the schema.
-	 * @return JSONArray output: A valid array as specified in the schema.
+	 * @return JSONArray: A valid array as specified in the schema.
 	 */
 	@Override
 	public JSONArray generate() {

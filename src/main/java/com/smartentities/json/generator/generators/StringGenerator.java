@@ -21,8 +21,12 @@ public class StringGenerator extends JsonValueGenerator<String> {
 		super(schema);
 	}
 
+	/**
+	 * Generates a valid string from the user specified schema. Currently supports minimum/maximum lengths and
+	 * (regex) patterns.
+	 * @return String: A valid string from the user specified schema.
+	 */
 	@Override
-	// TODO Parse properties and return valid option
 	public String generate() {
 		Random random = new Random();
 		int minLength = 0; // Default length is 8 to prevent very long strings

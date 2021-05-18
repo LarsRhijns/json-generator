@@ -14,8 +14,12 @@ public class NumberGenerator extends JsonValueGenerator<Number> {
 		super(schema);
 	}
 
+	/**
+	 * Generates a random number which is valid under the user specified schema. Currently supports (exclusive)
+	 * minimums/maximums, multiples and integer options.
+	 * @return Number: Either a valid Integer or Double.
+	 */
 	@Override
-	// TODO Parse properties and return random option
 	public Number generate() {
 		double number = 0.0;
 		Random random = new Random();
