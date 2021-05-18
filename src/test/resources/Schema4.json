@@ -26,6 +26,23 @@
         },
         "Department": {
             "enum":  ["EE", "CS", "AM", "WB", "IO"]
+        },
+        "Array": {
+            "type": "array",
+            "items": [
+                {
+                    "type": "number"
+                },
+                {
+                    "type": "string"
+                },
+                {
+                    "enum": ["Street", "Avenue", "Boulevard"]
+                },
+                {
+                    "enum": ["NW", "NE", "SW", "SE"]
+                }
+            ]
         }
     }
 }
