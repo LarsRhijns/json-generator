@@ -18,16 +18,55 @@ public class ObjectGenerator extends JsonValueGenerator<JSONObject> {
 		super(schema);
 	}
 
+	/**
+	 * Generates a valid Object from the specified schema.
+	 * Generates all properties and ignores the "additionalProperties" and "required" fields.
+	 * Currently supports minimum/maximum lengths.
+	 * @return JSONObject: A valid object as specified in the schema
+	 */
 	@Override
-	// TODO Parse properties and return random valid option
 	public JSONObject generate() {
-
 		if (schema instanceof ObjectSchema) {
-			ObjectSchema objectSchema = (ObjectSchema) schema;
-
-			Map<String, Schema> map = objectSchema.getPropertySchemas();
-
+			ObjectSchema sc = (ObjectSchema) schema;
+			Map<String, Schema> map = sc.getPropertySchemas();
+			int lenProperties = map.size();
 			JSONObject object = new JSONObject();
+			int minProperties = 0;
+			boolean hasMin = true;
+			int maxProperties = 0;
+			boolean hasMax = true;
+
+			try {
+				minProperties = sc.getMinProperties();
+			} catch (NullPointerException e) {
+				hasMin = false;
+			}
+
+			try {
+				maxProperties = sc.getMaxProperties();
+			} catch (NullPointerException e) {
+				hasMax = false;
+			}
+
+			// Check if correct amount of items are specified
+			if (hasMax && hasMin) {
+				if (maxProperties < minProperties) {
+					throw new IllegalArgumentException("Minimal length should be smaller than maximal length. Please check schema.");
+				}
+
+				if (lenProperties > maxProperties || lenProperties < minProperties) {
+					throw new IllegalArgumentException("Too many/few items specified. Please check schema.");
+				}
+			} else if (hasMax) {
+				if (lenProperties > maxProperties) {
+					throw new IllegalArgumentException("Too many items specified. Please check schema.");
+				}
+			} else if (hasMin) {
+				if (lenProperties < minProperties) {
+					throw new IllegalArgumentException("Too few items specified. Please check schema.");
+				}
+			}
+
 			for (Entry<String, Schema> entry : map.entrySet()) {
 				String key = entry.getKey();
 
@@ -35,7 +74,6 @@ public class ObjectGenerator extends JsonValueGenerator<JSONObject> {
 			}
 			return object;
 		}
-
 		return null;
 	}
 }
