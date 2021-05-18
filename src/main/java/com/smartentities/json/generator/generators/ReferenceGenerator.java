@@ -10,8 +10,11 @@ public class ReferenceGenerator extends JsonValueGenerator<Object> {
         super(schema);
     }
 
+    /**
+     * Looks up the referred object. Uses the generate of that object.
+     * @return Object: The referenced object generation
+     */
     @Override
-    // TODO Parse properties and generate valid object
     public Object generate() {
         Schema referredSchema = ((ReferenceSchema) schema).getReferredSchema();
 

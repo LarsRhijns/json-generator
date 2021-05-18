@@ -16,6 +16,7 @@
         "Name": {
             "type": "string",
             "title": "Title of Name",
+            "$id": "#Name",
     		"description": "Description of name",
             "pattern": "^(\\([0-9]{3}\\))?[0-9]{3}-[0-9]{4}$"
         },
@@ -31,7 +32,11 @@
             "type": "array",
             "items": [
                 {
-                    "type": "number"
+                    "type": "object",
+                    "properties": {
+                        "first_name": {"$ref" : "#Name"},
+                        "num" : { "type":  "number"}
+                    }
                 },
                 {
                     "type": "string"
