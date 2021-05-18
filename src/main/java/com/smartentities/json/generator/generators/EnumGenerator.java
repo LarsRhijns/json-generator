@@ -4,6 +4,7 @@ import org.everit.json.schema.EnumSchema;
 import org.everit.json.schema.Schema;
 
 import java.util.List;
+import java.util.Random;
 
 public class EnumGenerator extends JsonValueGenerator<Object> {
 
@@ -15,7 +16,13 @@ public class EnumGenerator extends JsonValueGenerator<Object> {
     @Override
     // TODO Parse properties and return any option
     public Object generate() {
+        Random random = new Random();
         List<Object> possibleValuesAsList = ((EnumSchema) schema).getPossibleValuesAsList();
-        return possibleValuesAsList.get(0);
+        int len = possibleValuesAsList.size();
+
+        // Choose random option from the options
+        int index = random.nextInt(len);
+
+        return possibleValuesAsList.get(index);
     }
 }

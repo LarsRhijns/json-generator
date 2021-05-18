@@ -1,5 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
     "title": "My schema",
     "description": "Created with Liquid Studio 2018 (https://www.liquid-technologies.com)",
@@ -23,6 +23,9 @@
             "type": "boolean",
             "title": "Status",
     		"description": "Description of Status"
+        },
+        "Department": {
+            "enum":  ["EE", "CS", "AM", "WB", "IO"]
         }
     }
 }
