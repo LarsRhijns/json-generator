@@ -27,4 +27,4 @@ And add the following to your Maven Dependencies:
 You can copy the main from JsonGeneratorTest, change the filepath to a valid JSON schema and then just run the main. That's all!
 
 
-![Release](https://jitpack.io/v/LarsRhijns/json-generator.svg)
+![Release](https://jitpack.io/#LarsRhijns/json-generator)
