@@ -7,8 +7,8 @@ import java.util.Random;
 
 public class NumberGenerator extends JsonValueGenerator<Number> {
 
-	private double MAX_BOUND = Long.MAX_VALUE;
-	private double MIN_BOUND = Long.MIN_VALUE;
+	private double MAX_BOUND = Integer.MAX_VALUE;
+	private double MIN_BOUND = Integer.MIN_VALUE;
 
 	public NumberGenerator(Schema schema) {
 		super(schema);
